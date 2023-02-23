@@ -5,6 +5,36 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="AddProduitsServlet" method="post">
 
+		<fieldset>
+		<div class="GestionProduits">
+		<br>
+			<h1>Gestion des Produits</h1><br>
+						
+		<div>
+			<label for="idProduit">Id Produit :<span class="required">*</span></label> 	
+		</div>
+		<br>
+	
+
+		<div>
+			<label for="nomProduit">Nom Produit :<span class="required">*</span></label> 
+			<input type="text" id="nomProduit" name="nomProduit" value="" size="25" maxlength="20">
+		</div>
+		<br>
+		
+		<div>
+			<label for="prixProduit">Prix :<span class="required">*</span></label> 
+			<input type="text" id=prixProduit name="prixProduit" value="" size="25" maxlength="20">
+		</div>
+		<br>
+		
+		<button type="submit">Save</button>
+		</div>
+		</fieldset>	
+		<br>
+
+	</form>
 </body>
 </html>
