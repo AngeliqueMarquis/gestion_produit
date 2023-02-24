@@ -9,15 +9,18 @@
 </head>
 <body>
 <div class="page">
-		<h1>Liste des Produits</h1>
+		<h3>Liste des Produits</h3>
 		
-		<table id="id Produits">
+		
+		<table border="1"  >
  			<tr>
-		   		<th>Nom Produit</th>
-		   		<th>Prix</th>
+ 			<th style="width:10em">idProduit </th>
+		   		<th  style="width:15em">nomProduit</th>
+		   		<th style="width:15em">prixProduit</th>
+		   		
 		   	</tr>
 		   	
-		   	<c:forEach var="addProduits" items="${ ListeProduits}">
+		   	<c:forEach var="addProduits" items="${ListeProduits}">
    			<tr>
    				<td><c:out value="${addProduits.getNomProduit()}"/></td>
    				<td><c:out value="${addProduits.getPrixProduit()}"/></td>
@@ -29,8 +32,8 @@
 		</table>
 
 		
-		<form action="ProduitsServlet" method="GET">
-			<input class="button-ajout" type="submit" value="ajouter"></input>
+		<form action="AddProduitsServlet" method="GET">
+		<!-- <input class="button-ajout" type="submit" value="ajouter"></input> -->
 		</form>
 	</div>
 </body>

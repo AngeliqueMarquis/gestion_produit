@@ -4,6 +4,7 @@ public class Produits {
 	private int idProduit;
 	private String nomProduit;
 	private float prixProduit;
+	
 	public int getIdProduit() {
 		return idProduit;
 	}

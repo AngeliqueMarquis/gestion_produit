@@ -39,7 +39,7 @@ public class AddProduitsServlet extends HttpServlet {
 		ArrayList<Produits>ListeProduits=dao.getAll();
 		request.setAttribute("listeProduits", ListeProduits);
 
-		this.getServletContext().getRequestDispatcher("/WEB-INF/AjoutProduits.jsp").forward(request,response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/ListeProduits.jsp").forward(request,response);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class AddProduitsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		boolean redirect = false; 
-		//Le return de la méthode passe à true si on doit renvoyer au jsp ajoutProduits
+		//Le return de la méthode passe à true si on doit renvoyer au jsp ListeProduits
 		
 		String nomProduit = request.getParameter("nomProduit");
 		if(nomProduit.equals("")) { //Si le champ nomProduit est vide
@@ -77,9 +77,12 @@ public class AddProduitsServlet extends HttpServlet {
 		
 		System.out.println("-Creation de l'objet Gestion des Produits");
 		
-		Produits addProduits = new Produits();
+		Produits produit = new Produits();
 		String nomProduits = request.getParameter("nomProduit");
 		float prixProduits = Float.parseFloat(request.getParameter("prixProduit"));
+		
+		produit.setNomProduit(nomProduits);
+		produit.setPrixProduit(prixProduits);
 		
 		request.setAttribute("nomProduit", nomProduits);
 		request.setAttribute("prixProduit", prixProduits);
@@ -89,11 +92,11 @@ public class AddProduitsServlet extends HttpServlet {
 		ProduitsDaoImpl ProduitsDao = new ProduitsDaoImpl();
 		
 		System.out.println("Appel de la methode add() sur ProduitsDaoImpl");
-		int resultat = ProduitsDao.add(addProduits);
+		int resultat = ProduitsDao.add(produit);
 		
 		System.out.println("Le nombre des lignes modifiées : " + resultat);
 
-		this.getServletContext().getRequestDispatcher("/WEB-INF/EditProduits.jsp").forward(request,response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/ListeProduits.jsp").forward(request,response);
 	}
 	}
 

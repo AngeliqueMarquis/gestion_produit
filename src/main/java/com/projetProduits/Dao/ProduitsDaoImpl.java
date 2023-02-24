@@ -24,22 +24,24 @@ public class ProduitsDaoImpl implements ProduitsDao{
 
 			Connect connexion = this.conn;
 			int rs = 0;
-			String insert = "INSERT INTO produits (idProduits, nomProduits, prixProduits) VALUES (?,?,?)";
+			String insert = "INSERT INTO produits ( nomproduits, prixproduits) VALUES (?,?)";
 
 			try {
 			Class.forName("org.postgresql.Driver");
 			} catch (ClassNotFoundException e) {
 				throw new RuntimeException(e);
-			}
+			}	System.out.print("Erreur");
 			try {
 				Connection conn = (Connection) DriverManager.getConnection(connexion.getUrl(), connexion.getUser(),
 						connexion.getPassword()
+			
 				);
 			
 				PreparedStatement st = (PreparedStatement) conn.prepareStatement(insert);
-				st.setInt(1, produit.getIdProduit());
-				st.setString(2, produit.getNomProduit());
-				st.setFloat(3, produit.getPrixProduit());
+				
+				
+				st.setString(1, produit.getNomProduit());
+				st.setFloat(2, produit.getPrixProduit());
 				
 				
 				rs = st.executeUpdate();
